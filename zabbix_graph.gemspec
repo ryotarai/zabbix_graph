@@ -8,9 +8,8 @@ Gem::Specification.new do |spec|
   spec.version       = ZabbixGraph::VERSION
   spec.authors       = ["Ryota Arai"]
   spec.email         = ["ryota.arai@gmail.com"]
-  spec.summary       = %q{TODO: Write a short summary. Required.}
-  spec.description   = %q{TODO: Write a longer description. Optional.}
-  spec.homepage      = ""
+  spec.summary       = %q{Open Zabbix adhoc graph}
+  spec.homepage      = "https://github.com/ryotarai/zabbix_graph"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files -z`.split("\x0")
@@ -19,6 +18,8 @@ Gem::Specification.new do |spec|
   spec.require_paths = ["lib"]
 
   spec.add_dependency "zabbixapi", "~> 2.4.2"
+  spec.add_dependency "peco_selector"
+
   spec.add_development_dependency "bundler", "~> 1.7"
   spec.add_development_dependency "rake", "~> 10.0"
 end
