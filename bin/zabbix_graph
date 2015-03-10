@@ -1,0 +1,3 @@
+#!/usr/bin/env ruby
+require 'zabbix_graph'
+ZabbixGraph::CLI.start(ARGV)
