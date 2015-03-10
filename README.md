@@ -1,26 +1,19 @@
 # ZabbixGraph
 
-TODO: Write a gem description
+Select hosts and items with peco, and open adhoc graph.
 
 ## Installation
-
-Add this line to your application's Gemfile:
-
-```ruby
-gem 'zabbix_graph'
-```
-
-And then execute:
-
-    $ bundle
-
-Or install it yourself as:
 
     $ gem install zabbix_graph
 
 ## Usage
 
-TODO: Write usage instructions here
+```
+$ export ZABBIX_URL=...
+$ export ZABBIX_USER=...
+$ export ZABBIX_PASSWORD=...
+$ zabbix_graph
+```
 
 ## Contributing
 
