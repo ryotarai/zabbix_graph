@@ -2,6 +2,7 @@ require "zabbix_graph/version"
 require "zabbixapi"
 require "peco_selector"
 require "optparse"
+require "fileutils"
 
 module ZabbixGraph
   class CLI
