@@ -16,6 +16,7 @@ module ZabbixGraph
       parser = OptionParser.new
       parser.on('--host-graph') { options[:host_graph] = true }
       parser.on('--item-graph') { options[:item_graph] = true }
+      parser.on('--period=VAL') {|v| options[:period] = v }
       parser.parse!(argv)
 
       options
@@ -126,12 +127,30 @@ module ZabbixGraph
     end
 
     def query_string_from_items(items)
-      query = [['action', 'batchgraph'], ['graphtype', '0']]
+      query = [['action', 'batchgraph'], ['graphtype', '0'], ['period', period.to_s]]
       items.each do |i|
         query << ['itemids[]', i['itemid']]
       end
 
       URI.encode_www_form(query)
+    end
+
+    def period
+      return 3600 unless @options[:period]
+
+      @options[:period].scan(/(\d+)([smhd])/).map do |part|
+        scale = case part[1]
+                when "s"
+                  1
+                when "m"
+                  60
+                when "h"
+                  60 * 60
+                when "d"
+                  60 * 60 * 24
+                end
+        part[0].to_i * scale
+      end.inject(0) {|sum, i| sum + i }
     end
 
     def zbx
