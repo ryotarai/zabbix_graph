@@ -3,6 +3,7 @@ require "zabbixapi"
 require "peco_selector"
 require "optparse"
 require "fileutils"
+require "launchy"
 
 module ZabbixGraph
   class CLI
@@ -69,7 +70,7 @@ module ZabbixGraph
     def open_history(items)
       url = URI.join(zabbix_url, "/history.php?#{query_string_from_items(items)}")
 
-      system 'open', url.to_s
+      Launchy.open url.to_s
     end
 
     def open_host_graph(items)
@@ -116,7 +117,7 @@ module ZabbixGraph
         f.write html
       end
 
-      system 'open', path
+      Launchy.open path
     end
 
     def temp_html_dir
