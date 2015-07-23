@@ -1,4 +1,4 @@
-# ZabbixGraph
+# ZabbixGraph [![Gem Version](https://badge.fury.io/rb/zabbix_graph.svg)](http://badge.fury.io/rb/zabbix_graph)
 
 Select hosts and items with peco, and open adhoc graph.
 
