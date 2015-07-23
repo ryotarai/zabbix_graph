@@ -40,6 +40,8 @@ module ZabbixGraph
         method: 'item.get',
         params: {
           hostids: hosts.map {|h| h['hostid'] },
+          sortfield: 'name',
+          sortorder: 'ASC',
         },
       )
 
